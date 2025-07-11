@@ -891,3 +891,35 @@ textarea::placeholder {
         font-size: 2rem;
     }
 }
+
+/* Remove extra space and center Contact section on small devices */
+@media (max-width: 576px) {
+    .section.contact {
+        padding: 24px 0 !important;
+    }
+    .contact-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 18px;
+    }
+    .contact-form {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+    .dot {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px;
+        margin-top: 18px;
+    }
+    .info-item {
+        width: 100%;
+        text-align: center;
+    }
+    .container {
+        padding: 0 10px !important;
+        margin-bottom: 0 !important;
+    }
+}
