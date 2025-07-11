@@ -167,10 +167,12 @@ body {
     padding-top: 80px;
 }
 
+/* HERO SECTION FLEX DIRECTION */
 .hero .container {
     display: flex;
+    flex-direction: row-reverse; /* image-wrapper on left, content on right */
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .hero-content {
@@ -178,10 +180,26 @@ body {
     max-width: 600px;
 }
 
+/* Center .image-wrapper in its flex container */
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite, highlightGlow 2s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 0 var(--highlight);
+    transition: box-shadow 0.3s;
 }
 
 .hero h1 {
@@ -276,15 +294,6 @@ body {
     color: var(--highlight);
 }
 
-.image-wrapper {
-    position: relative;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
-    animation: float 6s ease-in-out infinite;
-}
-
 .image-wrapper img {
     width: 100%;
 
@@ -326,34 +335,61 @@ body {
 
 /* About Section */
 
+/* Enhanced Responsive and Centered About Image */
 .about-content1 {
     display: flex;
-   
     gap: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-image1 {
-   
-    
     flex: 1;
-    max-width: 200px;
+    max-width: 240px;
+    min-width: 120px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .about-image1 img {
-   width: 100%;
-   margin-bottom: 10px;
-   margin-left: 270%;
-        display: flex;
-    justify-content: center; /* Horizontally centers the image */
-    align-items: center;    /* Vertically centers the image */
-   animation: float  6s ease-in-out infinite;
-   background-image:var(--secondary);
-  
-    border-radius: 100px;
-    
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+    border-radius: 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
 }
+
+/* Remove .circle and its animation */
+
+/* Responsive breakpoints for about section */
+@media (max-width: 992px) {
+    .about-content1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .about-image1 {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-image1 {
+        max-width: 110px;
+    }
+    .about-content1 {
+        gap: 10px;
+    }
+}
+
 .about-image1 .circle img {
 
 position: absolute;
@@ -747,11 +783,33 @@ textarea::placeholder {
     }
 }
 
+/* Highlight color animation for .image-wrapper */
+@keyframes highlightGlow {
+    0% {
+        box-shadow: 0 0 0 0 var(--highlight);
+    }
+    100% {
+        box-shadow: 0 0 40px 10px var(--highlight);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero .container {
         flex-direction: column;
         text-align: center;
+    }
+    .hero-image {
+        margin-top: 30px;
+        justify-content: center;
+        order: 1;
+    }
+    .hero-content {
+        order: 2;
+    }
+    .image-wrapper {
+        width: 250px;
+        height: 250px;
     }
     
     .hero-content {
@@ -761,13 +819,14 @@ textarea::placeholder {
     .about-content {
         flex-direction: column;
     }
+ 
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
-    
+      
     .nav-links {
         position: fixed;
         top: 80px;
@@ -807,13 +866,25 @@ textarea::placeholder {
 }
 
 @media (max-width: 576px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 20px;
+        justify-content: center;
+        order: 1;
+    }
+    .hero-content {
+        order: 2;
+    }
     .hero h1 {
         font-size: 2rem;
     }
     
     .image-wrapper {
-        width: 250px;
-        height: 250px;
+        width: 120px;
+        height: 120px;
     }
     a
     .section-title {
