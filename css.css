@@ -368,7 +368,7 @@ body {
 }
 
 .about-image1 img {
-    width: 100%;
+   width: 100%;
     height: auto;
     margin: 0;
     display: block;
@@ -887,6 +887,36 @@ textarea::placeholder {
 }
 
 @media (max-width: 576px) {
+    /* Center all main sections and their content on small devices */
+    .section,
+    .section-title,
+    .about-text,
+    .skills-grid,
+    .projects-grid,
+    .contact-content,
+    .footer,
+    .footer-links {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .section-title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-text,
+    .skills-grid,
+    .projects-grid,
+    .contact-content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .skills-grid,
+    .projects-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
     .hero .container {
         flex-direction: column;
         text-align: center;
